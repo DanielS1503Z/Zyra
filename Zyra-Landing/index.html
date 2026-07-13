@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyra SaaS — Tu Agente de Ventas con IA para WhatsApp</title>
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Automatiza las ventas de tu negocio en WhatsApp con Inteligencia Artificial. Catálogos automáticos, lectura de notas de voz, checkout digital y conversión automática a tasa BCV en tiempo real.">
+    <meta name="keywords" content="chatbot whatsapp, inteligencia artificial, ventas automatizadas, venezuela bcv, omnicanalidad, e-commerce conversacional">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #080808;
+            --grid-color: rgba(255, 59, 80, 0.03);
+            --card-bg: rgba(18, 18, 18, 0.7);
+            --card-border: rgba(255, 59, 80, 0.1);
+            
+            --text-main: #f3f4f6;
+            --text-muted: #a3a3a3;
+            
+            --primary: #ff3b50;
+            --primary-hover: #e11d48;
+            --primary-glow: rgba(255, 59, 80, 0.15);
+            
+            --purple: #ff6b3b;
+            --purple-glow: rgba(255, 107, 59, 0.15);
+            
+            --gold: #f59e0b;
+            --gold-glow: rgba(245, 158, 11, 0.15);
+            
+            --success: #10b981;
+            
+            --gradient-main: linear-gradient(135deg, #ff3b50 0%, #ff6b3b 50%, #f43f5e 100%);
+            --gradient-dark: linear-gradient(180deg, #121212 0%, #080808 100%);
+            --gradient-card-hover: linear-gradient(135deg, rgba(255, 59, 80, 0.06) 0%, rgba(255, 107, 59, 0.06) 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 59, 80, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 59, 0.05) 0%, transparent 40%),
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- Header / Navigation --- */
+        header.navbar {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(3, 7, 18, 0.8);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 26px;
+            font-weight: 900;
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14.5px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .btn-nav {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: #ffffff !important;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nav:hover {
+            background: #ffffff;
+            color: var(--bg-color) !important;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 80px 0 100px 0;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .hero-text h1 span {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 17px;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            max-width: 580px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .badge-founder {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--gold);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.05);
+        }
+
+        .badge-meta {
+            background: rgba(255, 59, 80, 0.1);
+            color: #ff6b3b;
+            border: 1px solid rgba(255, 59, 80, 0.3);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 6px 14px;
+            border-radius: 50px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: var(--gradient-main);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4);
+            opacity: 0.95;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- Interactive Chat Demo --- */
+        .chat-demo-container {
+            background: rgba(17, 24, 39, 0.6);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+        }
+
+        .chat-header {
+            background: #075e54;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            background: #ffffff;
+            color: #075e54;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+        }
+
+        .chat-status {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-status .name {
+            font-weight: 700;
+            font-size: 14.5px;
+            color: #ffffff;
+        }
+
+        .chat-status .status-text {
+            font-size: 11px;
+            color: #a3e635;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .chat-status .status-text::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #a3e635;
+            border-radius: 50%;
+        }
+
+        .chat-body {
+            height: 380px;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            background-color: #0b141a;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        .msg {
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 13.5px;
+            position: relative;
+            animation: popIn 0.3s ease forwards;
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: translateY(10px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .msg.user {
+            background: #005c4b;
+            color: #e9edef;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+
+        .msg.bot {
+            background: #202c33;
+            color: #e9edef;
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .msg-time {
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.4);
+            text-align: right;
+            margin-top: 4px;
+            display: block;
+        }
+
+        .msg-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 6px;
+        }
+
+        .voice-note {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 200px;
+        }
+
+        .voice-note svg {
+            color: #86efac;
+            flex-shrink: 0;
+        }
+
+        .voice-wave {
+            flex-grow: 1;
+            height: 12px;
+            background: repeating-linear-gradient(90deg, rgba(255,255,255,0.2), rgba(255,255,255,0.2) 2px, transparent 2px, transparent 6px);
+        }
+
+        /* --- Features Section --- */
+        .features {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(4px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 59, 80, 0.2);
+            background: var(--gradient-card-hover);
+            box-shadow: 0 15px 30px rgba(255, 59, 80, 0.05);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--primary-glow);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .feature-card.purple-icon .feature-icon {
+            background: var(--purple-glow);
+            color: var(--purple);
+        }
+
+        .feature-card.gold-icon .feature-icon {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--gold);
+        }
+
+        .feature-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            font-size: 13.5px;
+            color: var(--text-muted);
+        }
+
+        /* --- Social Proof & Urgency --- */
+        .scarcity {
+            padding: 50px 0;
+            background: linear-gradient(90deg, rgba(245,158,11,0.03) 0%, rgba(139,92,246,0.03) 100%);
+            border-top: 1px dashed rgba(245, 158, 11, 0.2);
+            border-bottom: 1px dashed rgba(245, 158, 11, 0.2);
+            text-align: center;
+        }
+
+        .scarcity-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .scarcity-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fef08a;
+        }
+
+        .scarcity-counter {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            background: var(--gold);
+            color: #000000;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        /* --- Pricing Section --- */
+        .pricing {
+            padding: 80px 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 40px 28px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(4px);
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .price-card.featured {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px var(--primary-glow);
+            background: linear-gradient(180deg, rgba(17, 24, 39, 0.8) 0%, rgba(3, 7, 18, 0.9) 100%);
+        }
+
+        .price-card.featured::before {
+            content: "RECOMENDADO PYME";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-main);
+            color: #ffffff;
+            font-size: 9px;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 1.5px;
+            padding: 4px 14px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+        }
+
+        .price-card.enterprise {
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.05);
+        }
+
+        .price-card.enterprise::before {
+            content: "CORPORACIÓN";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: #000000;
+            font-size: 9px;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 1.5px;
+            padding: 4px 14px;
+            border-radius: 50px;
+        }
+
+        .price-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .price-summary {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+            height: 48px;
+            margin-bottom: 20px;
+        }
+
+        .price-amount-box {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .price-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -1px;
+        }
+
+        .price-period {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-left: 6px;
+        }
+
+        .setup-fee {
+            font-size: 11px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .setup-fee.strike {
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .setup-fee.free {
+            color: var(--success);
+        }
+
+        .price-features {
+            list-style: none;
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+
+        .price-features li {
+            font-size: 13px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            color: #d1d5db;
+        }
+
+        .price-features li svg {
+            width: 16px;
+            height: 16px;
+            color: var(--success);
+            margin-right: 8px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .price-features li.disabled {
+            color: #4b5563;
+            text-decoration: line-through;
+        }
+
+        .price-features li.disabled svg {
+            color: #374151;
+        }
+
+        .price-btn {
+            display: block;
+            text-align: center;
+            padding: 14px;
+            border-radius: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .price-btn.starter {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border: 1px solid var(--card-border);
+        }
+
+        .price-btn.starter:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .price-btn.featured {
+            background: var(--gradient-main);
+            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.25);
+        }
+
+        .price-btn.featured:hover {
+            opacity: 0.95;
+            box-shadow: 0 12px 25px rgba(139, 92, 246, 0.35);
+        }
+
+        .price-btn.enterprise {
+            background: var(--gold);
+            color: #000000;
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.15);
+        }
+
+        .price-btn.enterprise:hover {
+            opacity: 0.95;
+            box-shadow: 0 12px 25px rgba(245, 158, 11, 0.25);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            background: #020610;
+        }
+
+        .footer-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 13.5px;
+        }
+
+        /* --- Responsive Queries --- */
+        .price-regular-crossed {
+            font-size: 20px;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-right: 8px;
+            font-weight: 500;
+            align-self: center;
+        }
+
+        .price-card.proplus {
+            border-color: rgba(192, 132, 252, 0.4);
+            box-shadow: 0 10px 30px rgba(192, 132, 252, 0.05);
+        }
+
+        .price-card.proplus::before {
+            content: "CRECIMIENTO";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+            color: #ffffff;
+            font-size: 9px;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 1.5px;
+            padding: 4px 14px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+        }
+
+        /* --- Roadmap / Hype Section --- */
+        .roadmap {
+            padding: 80px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .roadmap-card {
+            background: rgba(18, 18, 18, 0.4);
+            border: 1px dashed rgba(255, 59, 80, 0.2);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }
+        .roadmap-card:hover {
+            border-style: solid;
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(255, 59, 80, 0.05);
+            transform: translateY(-4px);
+        }
+        .roadmap-badge {
+            display: inline-block;
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+        .roadmap-badge.week1 {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        .roadmap-badge.week2 {
+            background: rgba(139, 92, 246, 0.1);
+            color: #a78bfa;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+        .roadmap-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 750;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .roadmap-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-text h1 {
+                font-size: 44px;
+            }
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-cta {
+                justify-content: center;
+            }
+            .hero-badges {
+                justify-content: center;
+            }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 800px;
+                margin: 0 auto;
+                gap: 24px;
+            }
+            .roadmap-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 800px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+            .roadmap-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+            .hero-cta a {
+                width: 100%;
+                justify-content: center;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <img src="logo_zyra.png" alt="Zyra Logo" style="height: 38px; width: auto; object-fit: contain;">
+                <span>Zyra</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#funciones">Funciones</a></li>
+                <li><a href="#precios">Precios</a></li>
+                <li><a href="https://wa.me/584228086971" class="btn-nav">Demo en Vivo</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="container hero">
+        <div class="hero-text">
+            <div class="hero-badges">
+                <span class="badge-founder">Programa de Fundadores</span>
+                <span class="badge-meta">WhatsApp Cloud API</span>
+            </div>
+            <h1>El Agente de IA que <span>Vende por ti</span> en WhatsApp</h1>
+            <p>Atiende consultas de clientes, procesa pedidos con checkout en caliente, transcribe notas de voz y cotiza en Bolívares y Dólares con la tasa del BCV en tiempo real. 100% automático.</p>
+            <div class="hero-cta">
+                <a href="https://wa.me/584228086971?text=Hola!%20Quiero%20ser%20fundador%20de%20Zyra" class="btn-primary">
+                    Reservar Cupo Fundador
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path></svg>
+                </a>
+                <a href="#funciones" class="btn-secondary">Saber Más</a>
+            </div>
+        </div>
+
+        <!-- Simulated WhatsApp Live Demo Widget -->
+        <div class="chat-demo-container">
+            <div class="chat-header">
+                <div class="chat-avatar">Z</div>
+                <div class="chat-status">
+                    <span class="name">Zyra IA — Asistente de Ventas</span>
+                    <span class="status-text">en línea y vendiendo</span>
+                </div>
+            </div>
+            <div class="chat-body" id="chat-body">
+                <!-- Se inyecta dinámicamente con JS para simular la conversación -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Scarcity / Urgency Banner -->
+    <section class="scarcity">
+        <div class="container scarcity-box">
+            <span class="scarcity-text">⚠️ Oferta de Preventa: Setup Gratis y 10% OFF en la suscripción de tus primeros 3 meses.</span>
+            <div class="scarcity-counter">Solo 12 cupos disponibles</div>
+        </div>
+    </section>
+
+    <!-- Core Features Section -->
+    <section id="funciones" class="container features">
+        <div class="section-header">
+            <h2>Tecnología Conversacional Inteligente</h2>
+            <p>Zyra no es un bot de respuestas rígidas. Es un agente comercial de IA que entiende intenciones de compra y procesa cobros.</p>
+        </div>
+        
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3>Smart Currency (Bs/USD)</h3>
+                <p>Monitorea y actualiza automáticamente los precios de tu catálogo usando la tasa diaria del BCV. Tus clientes siempre reciben la cotización exacta.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="feature-card purple-icon">
+                <div class="feature-icon">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                </div>
+                <h3>Transcribe Notas de Voz</h3>
+                <p>Integrado con Whisper. Si tus clientes prefieren enviar audios, la IA escucha, entiende e interactúa como si hubiera leído un mensaje de texto.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="feature-card gold-icon">
+                <div class="feature-icon">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                </div>
+                <h3>Checkout Digital Integrado</h3>
+                <p>Permite al cliente agregar artículos a un carrito virtual en caliente desde el chat, autocompletando los datos de envío y generando pre-facturas.</p>
+            </div>
+        </div>
+     <!-- Roadmap / Hype Section -->
+    <section class="container roadmap" id="roadmap">
+        <div class="section-header">
+            <h2>Próximas Mejoras (Hype de Lanzamiento)</h2>
+            <p>Salimos en 2 días con nuestro motor Core de WhatsApp, pero esto es solo el inicio. Mira las actualizaciones preparadas para las próximas semanas:</p>
+        </div>
+        <div class="roadmap-grid">
+            <!-- Item 1 -->
+            <div class="roadmap-card">
+                <span class="roadmap-badge week1">Semana 1</span>
+                <h3>Integración de Instagram DMs</h3>
+                <p>Conecta la IA de Zyra a tu bandeja de entrada de Instagram. Atiende comentarios y mensajes directos con el mismo cerebro e inventario de WhatsApp.</p>
+            </div>
+            <!-- Item 2 -->
+            <div class="roadmap-card">
+                <span class="roadmap-badge week2">Semana 2</span>
+                <h3>Campañas de Difusión & Marketing</h3>
+                <p>Envía mensajes masivos y plantillas HSM personalizadas a tus bases de datos. Segmenta y dispara tus ventas de forma automática.</p>
+            </div>
+            <!-- Item 3 -->
+            <div class="roadmap-card">
+                <span class="roadmap-badge week2">Semana 2</span>
+                <h3>Ruteo Inteligente por GPS</h3>
+                <p>Direcciona automáticamente los pedidos al local o sucursal más cercana del cliente analizando su ubicación o dirección escrita.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="precios" class="container pricing">
+        <div class="section-header">
+            <h2>Planes del Programa de Fundadores</h2>
+            <p>Únete hoy como fundador (solo 12 cupos) y obtén <strong>Instalación Gratis ($0) + 10% de descuento mensual</strong> en tus primeros 3 meses. Meta API costos absorbidos por Zyra.</p>
+        </div>
+        
+        <div class="pricing-grid">
+            <!-- Plan Starter -->
+            <div class="price-card">
+                <div class="price-name" style="color: var(--text-muted);">Starter</div>
+                <p class="price-summary">Ideal para emprendimientos o tiendas que manejan flujos básicos de atención al cliente.</p>
+                <div class="price-amount-box">
+                    <span class="price-regular-crossed">$79</span>
+                    <span class="price-val">$71</span>
+                    <span class="price-period">/ mes</span>
+                </div>
+                <div class="setup-fee strike">Instalación: $50 USD</div>
+                <div class="setup-fee free">¡Instalación Gratis (Fundadores)!</div>
+                
+                <ul class="price-features">
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        1 Número / 1 Sede
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        <strong>400 clientes únicos</strong> / mes
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        Conversión de Moneda BCV
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        Carrito en chat básico
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        Add-on Instagram: <strong>+$20/mes</strong> <span style="color: var(--success); font-weight:700;">(50% OFF)</span>
+                    </li>
+                    <li class="disabled"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        Escucha de Audios (Whisper)
+                    </li>
+                </ul>
+                <a href="https://wa.me/584228086971?text=Hola!%20Quiero%20el%20Plan%20Starter%20con%20descuento%20Fundador" class="price-btn starter">Elegir Starter</a>
+            </div>
+
+            <!-- Plan Pro -->
+            <div class="price-card featured">
+                <div class="price-name" style="color: #ff3b50;">Pro WhatsApp</div>
+                <p class="price-summary">Perfecto para negocios que concentran y cierran sus ventas a diario en WhatsApp.</p>
+                <div class="price-amount-box">
+                    <span class="price-regular-crossed">$149</span>
+                    <span class="price-val">$134</span>
+                    <span class="price-period">/ mes</span>
+                </div>
+                <div class="setup-fee strike">Instalación: $50 USD</div>
+                <div class="setup-fee free">¡Instalación Gratis (Fundadores)!</div>
+                
+                <ul class="price-features">
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        1 Número / 1 Sede
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        <strong>1,000 clientes únicos</strong> / mes
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        <strong>Escucha de Audios (Whisper)</strong>
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        Web Checkout Inteligente
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        Add-on Instagram: <strong>+$20/mes</strong> <span style="color: var(--success); font-weight:700;">(50% OFF)</span>
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        Dashboard & Panel de Logs
+                    </li>
+                </ul>
+                <a href="https://wa.me/584228086971?text=Hola!%20Quiero%20el%20Plan%20Pro%20con%20descuento%20Fundador" class="price-btn featured">Elegir Plan Pro</a>
+            </div>
+
+            <!-- Plan Pro Plus -->
+            <div class="price-card proplus">
+                <div class="price-name" style="color: #c084fc;">Pro Plus</div>
+                <p class="price-summary">Diseñado para comercios en expansión con requerimiento de doble sede o sucursal.</p>
+                <div class="price-amount-box">
+                    <span class="price-regular-crossed">$280</span>
+                    <span class="price-val">$252</span>
+                    <span class="price-period">/ mes</span>
+                </div>
+                <div class="setup-fee strike">Instalación: $100 USD</div>
+                <div class="setup-fee free">¡Instalación Gratis (Fundadores)!</div>
+                
+                <ul class="price-features">
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        1 Número / <strong>2 Sedes</strong>
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        <strong>2,000 clientes únicos</strong> / mes
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        <strong>Instagram Directo Incluido</strong>
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        Escucha de Audios (Whisper)
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        Inventario separado por sucursal
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        Dashboard consolidado
+                    </li>
+                </ul>
+                <a href="https://wa.me/584228086971?text=Hola!%20Quiero%20el%20Plan%20Pro%20Plus%20con%20descuento%20Fundador" class="price-btn starter" style="border:1px solid rgba(192, 132, 252, 0.4); color:#c084fc;">Elegir Pro Plus</a>
+            </div>
+
+            <!-- Plan Enterprise -->
+            <div class="price-card enterprise">
+                <div class="price-name" style="color: var(--gold);">Enterprise</div>
+                <p class="price-summary">La solución total para franquicias, cadenas y marcas con múltiples sucursales físicas.</p>
+                <div class="price-amount-box">
+                    <span class="price-regular-crossed">$400</span>
+                    <span class="price-val">$360</span>
+                    <span class="price-period">/ mes</span>
+                </div>
+                <div class="setup-fee strike">Instalación: $100 USD</div>
+                <div class="setup-fee free">¡Instalación Gratis (Fundadores)!</div>
+                
+                <ul class="price-features">
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        1 Número / <strong>Sedes Ilimitadas</strong>
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        <strong>5,000 clientes únicos</strong> / mes
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        Ruteo Inteligente por Dirección/GPS
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        Multi-Inventario por Sucursal
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        Canal dedicado Soporte SLA &lt;1h
+                    </li>
+                </ul>
+                <a href="https://wa.me/584228086971?text=Hola!%20Quiero%20información%20de%20Zyra%20Enterprise%20con%20descuento%20Fundador" class="price-btn enterprise">Solicitar Enterprise</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-wrapper">
+            <a href="#" class="logo">
+                <img src="logo_zyra.png" alt="Zyra Logo" style="height: 34px; width: auto; object-fit: contain;">
+                <span>Zyra</span>
+            </a>
+            <span class="footer-copy">© 2026 Zyra SaaS. Todos los derechos reservados. Diseñado para potenciar comercios.</span>
+        </div>
+    </footer>
+
+    <!-- Interactive script to simulate a realistic WhatsApp sale -->
+    <script>
+        const chatData = [
+            { sender: 'user', type: 'text', content: 'Buenas tardes. ¿Tienen el monitor curvo de 27" y cuál es el precio en Bs?' },
+            { sender: 'bot', type: 'text', content: '¡Hola! Sí, lo tenemos disponible en inventario. 📦\n\n📺 *Monitor Curvo Gamer 27"*\n• Precio: *$249.00 USD*\n• Equivalente BCV: *11,454.00 Bs.* (Tasa: 46.00 Bs/USD)\n\n¿Te gustaría agregarlo al carrito o quieres ver fotos del equipo?' },
+            { sender: 'user', type: 'text', content: 'Mándame una foto porfa' },
+            { sender: 'bot', type: 'image', content: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3', caption: 'Monitor Curvo Gamer de 27 pulgadas, tasa de refresco 165Hz.' },
+            { sender: 'user', type: 'voice', duration: '0:04' },
+            { sender: 'bot', type: 'text', content: '🎙️ _Nota de voz procesada:_ "Agrega uno por favor y dime cómo hacemos con el delivery en Las Mercedes."\n\n¡Perfecto! Monitor agregado al carrito de compras.🛒\n\n🛵 El delivery para *Las Mercedes* tiene un costo de $3 USD. Por favor completa tus datos haciendo clic en el siguiente enlace de pago:\n\n🔗 [zyra.shop/checkout/cart-592](https://wa.me/)' },
+            { sender: 'user', type: 'text', content: '¡Buenísimo! Ya te hago el pago móvil' }
+        ];
+
+        const chatBody = document.getElementById('chat-body');
+
+        function appendMessage(msgData, index) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    const msgDiv = document.createElement('div');
+                    msgDiv.classList.add('msg', msgData.sender);
+
+                    if (msgData.type === 'text') {
+                        msgDiv.innerHTML = msgData.content.replace(/\n/g, '<br>');
+                    } else if (msgData.type === 'image') {
+                        const img = document.createElement('img');
+                        img.src = msgData.content;
+                        img.className = 'msg-image';
+                        msgDiv.appendChild(img);
+                        const txt = document.createElement('span');
+                        txt.innerText = msgData.caption;
+                        msgDiv.appendChild(txt);
+                    } else if (msgData.type === 'voice') {
+                        const voiceContainer = document.createElement('div');
+                        voiceContainer.className = 'voice-note';
+                        voiceContainer.innerHTML = `
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            <div class="voice-wave"></div>
+                            <span>${msgData.duration}</span>
+                        `;
+                        msgDiv.appendChild(voiceContainer);
+                    }
+
+                    const timeSpan = document.createElement('span');
+                    timeSpan.className = 'msg-time';
+                    const now = new Date();
+                    timeSpan.innerText = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
+                    msgDiv.appendChild(timeSpan);
+
+                    chatBody.appendChild(msgDiv);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                    resolve();
+                }, index === 0 ? 500 : 2500); // Tiempos de retraso realistas
+            });
+        }
+
+        async function runDemoLoop() {
+            chatBody.innerHTML = '';
+            for (let i = 0; i < chatData.length; i++) {
+                await appendMessage(chatData[i], i);
+            }
+            // Reinicia el loop a los 10 segundos de terminar
+            setTimeout(runDemoLoop, 10000);
+        }
+
+        // Ejecutar simulación
+        runDemoLoop();
+    </script>
+</body>
+</html>
