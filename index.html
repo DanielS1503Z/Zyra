@@ -9,6 +9,13 @@
     <meta name="description" content="Automatiza las ventas de tu negocio en WhatsApp con Inteligencia Artificial. Catálogos automáticos, lectura de notas de voz, checkout digital y conversión automática a tasa BCV en tiempo real.">
     <meta name="keywords" content="chatbot whatsapp, inteligencia artificial, ventas automatizadas, venezuela bcv, omnicanalidad, e-commerce conversacional">
     
+    <!-- Open Graph / Meta Previews (WhatsApp y Redes Sociales) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zyrabotia.duckns.org/">
+    <meta property="og:title" content="Zyra SaaS — Tu Agente de Ventas con IA para WhatsApp">
+    <meta property="og:description" content="Atiende clientes, transcribe notas de voz (Whisper), actualiza precios a tasa BCV y genera cobros en caliente. 100% automático.">
+    <meta property="og:image" content="https://zyrabotia.duckns.org/logo_zyra.png">
+    
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
@@ -61,6 +68,34 @@
                 linear-gradient(var(--grid-color) 1px, transparent 1px),
                 linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
             background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            position: relative;
+        }
+
+        /* Orbes neón de fondo para profundidad tridimensional */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 15%;
+            left: -10%;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(255, 59, 80, 0.06) 0%, transparent 70%);
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            top: 65%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 59, 0.06) 0%, transparent 70%);
+            filter: blur(100px);
+            z-index: -1;
+            pointer-events: none;
         }
 
         .container {
@@ -69,15 +104,17 @@
             padding: 0 24px;
         }
 
-        /* --- Header / Navigation --- */
+        /* --- Header / Navigation (Glassmorphism SRE Premium) --- */
         header.navbar {
             padding: 24px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(3, 7, 18, 0.8);
+            background: rgba(8, 8, 8, 0.75);
+            transition: background 0.3s ease;
         }
 
         .nav-wrapper {
@@ -253,37 +290,40 @@
             border-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* --- Interactive Chat Demo --- */
+        /* --- Interactive Chat Demo (Dark Glassmorphism SRE) --- */
         .chat-demo-container {
-            background: rgba(17, 24, 39, 0.6);
-            border: 1px solid var(--card-border);
+            background: rgba(15, 23, 42, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 50px rgba(255, 59, 80, 0.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
         .chat-header {
-            background: #075e54;
+            background: linear-gradient(90deg, rgba(255, 59, 80, 0.12) 0%, rgba(255, 107, 59, 0.12) 100%);
             padding: 16px 20px;
             display: flex;
             align-items: center;
             gap: 12px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
         }
 
         .chat-avatar {
             width: 40px;
             height: 40px;
-            background: #ffffff;
-            color: #075e54;
+            background: var(--gradient-main);
+            color: #ffffff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
+            font-weight: 900;
             font-family: 'Outfit', sans-serif;
             font-size: 18px;
+            box-shadow: 0 4px 12px rgba(255, 59, 80, 0.25);
         }
 
         .chat-status {
@@ -292,9 +332,10 @@
         }
 
         .chat-status .name {
-            font-weight: 700;
+            font-weight: 750;
             font-size: 14.5px;
             color: #ffffff;
+            font-family: 'Outfit', sans-serif;
         }
 
         .chat-status .status-text {
@@ -303,6 +344,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
+            font-weight: 600;
         }
 
         .chat-status .status-text::before {
@@ -321,38 +363,42 @@
             display: flex;
             flex-direction: column;
             gap: 14px;
-            background-color: #0b141a;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+            background-color: rgba(10, 10, 10, 0.65);
+            background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 0);
             background-size: 24px 24px;
         }
 
         .msg {
-            max-width: 80%;
-            padding: 10px 14px;
-            border-radius: 12px;
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 16px;
             font-size: 13.5px;
             position: relative;
-            animation: popIn 0.3s ease forwards;
+            animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            line-height: 1.5;
         }
 
         @keyframes popIn {
-            from { opacity: 0; transform: translateY(10px) scale(0.95); }
+            from { opacity: 0; transform: translateY(12px) scale(0.96); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .msg.user {
-            background: #005c4b;
-            color: #e9edef;
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+            color: #f3f4f6;
             align-self: flex-end;
-            border-bottom-right-radius: 2px;
+            border-bottom-right-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.1);
         }
 
         .msg.bot {
-            background: #202c33;
-            color: #e9edef;
+            background: rgba(30, 41, 59, 0.85);
+            color: #f3f4f6;
             align-self: flex-start;
-            border-bottom-left-radius: 2px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom-left-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .msg-time {
@@ -421,11 +467,11 @@
 
         .feature-card {
             background: var(--card-bg);
-            border: 1px solid var(--card-border);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 20px;
             padding: 32px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(4px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(8px);
         }
 
         .feature-card:hover {
@@ -517,14 +563,14 @@
 
         .price-card {
             background: var(--card-bg);
-            border: 1px solid var(--card-border);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 24px;
             padding: 40px 28px;
             display: flex;
             flex-direction: column;
             position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(4px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(8px);
         }
 
         .price-card:hover {
@@ -534,9 +580,11 @@
         }
 
         .price-card.featured {
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px var(--primary-glow);
-            background: linear-gradient(180deg, rgba(17, 24, 39, 0.8) 0%, rgba(3, 7, 18, 0.9) 100%);
+            border: 1px solid transparent;
+            background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(3, 7, 18, 0.9)) padding-box,
+                        var(--gradient-main) border-box;
+            box-shadow: 0 15px 40px rgba(255, 59, 80, 0.15);
+            position: relative;
         }
 
         .price-card.featured::before {
@@ -771,12 +819,12 @@
         }
         .roadmap-card {
             background: rgba(18, 18, 18, 0.4);
-            border: 1px dashed rgba(255, 59, 80, 0.2);
+            border: 1px dashed rgba(255, 59, 80, 0.25);
             border-radius: 20px;
             padding: 32px;
             position: relative;
-            backdrop-filter: blur(4px);
-            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .roadmap-card:hover {
             border-style: solid;
@@ -877,6 +925,154 @@
                 display: none;
             }
         }
+
+        /* Overage Info Box */
+        .info-box {
+            background: linear-gradient(135deg, rgba(255, 59, 80, 0.08) 0%, rgba(245, 158, 11, 0.08) 100%);
+            border: 1px solid rgba(255, 59, 80, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .info-box svg {
+            width: 28px;
+            height: 28px;
+            color: #f59e0b;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .info-content h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .info-content p {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .info-content ul {
+            margin-top: 10px;
+            margin-left: 20px;
+            font-size: 13.5px;
+            color: #d1d5db;
+        }
+
+        .info-content li {
+            margin-bottom: 5px;
+        }
+
+        /* Founder Highlight Banner */
+        .founder-highlight-banner {
+            background: rgba(255, 59, 80, 0.05);
+            border: 1px dashed rgba(255, 59, 80, 0.25);
+            border-radius: 12px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: -10px auto 40px auto;
+            max-width: 850px;
+            text-align: center;
+            font-size: 14.5px;
+            color: #e5e7eb;
+            backdrop-filter: blur(4px);
+        }
+        .founder-highlight-banner strong {
+            color: #ff3b50;
+        }
+        @media (max-width: 768px) {
+            .founder-highlight-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 16px;
+            }
+        }
+
+        /* --- Scroll Reveal Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- FAQ Section Stylings --- */
+        .faq {
+            padding: 80px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .faq-item {
+            background: rgba(18, 18, 18, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            border-color: rgba(255, 59, 80, 0.2);
+            background: rgba(18, 18, 18, 0.7);
+        }
+        .faq-question {
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+        .faq-question h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16.5px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .faq-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+            color: var(--text-muted);
+            font-size: 13.5px;
+            line-height: 1.6;
+            padding: 0 24px;
+        }
+        .faq-item.open .faq-answer {
+            padding-bottom: 24px;
+            max-height: 200px; /* Suficiente para el contenido */
+        }
     </style>
 </head>
 <body>
@@ -938,7 +1134,7 @@
     </section>
 
     <!-- Core Features Section -->
-    <section id="funciones" class="container features">
+    <section id="funciones" class="container features reveal">
         <div class="section-header">
             <h2>Tecnología Conversacional Inteligente</h2>
             <p>Zyra no es un bot de respuestas rígidas. Es un agente comercial de IA que entiende intenciones de compra y procesa cobros.</p>
@@ -971,10 +1167,10 @@
             </div>
         </div>
      <!-- Roadmap / Hype Section -->
-    <section class="container roadmap" id="roadmap">
+    <section class="container roadmap reveal" id="roadmap">
         <div class="section-header">
-            <h2>Próximas Mejoras (Hype de Lanzamiento)</h2>
-            <p>Salimos en 2 días con nuestro motor Core de WhatsApp, pero esto es solo el inicio. Mira las actualizaciones preparadas para las próximas semanas:</p>
+            <h2>Plan de Desarrollo (Roadmap)</h2>
+            <p>Mira las actualizaciones y funcionalidades avanzadas que estamos preparando en nuestro plan de desarrollo continuo:</p>
         </div>
         <div class="roadmap-grid">
             <!-- Item 1 -->
@@ -999,10 +1195,16 @@
     </section>
 
     <!-- Pricing Section -->
-    <section id="precios" class="container pricing">
+    <section id="precios" class="container pricing reveal">
         <div class="section-header">
             <h2>Planes del Programa de Fundadores</h2>
             <p>Únete hoy como fundador (solo 12 cupos) y obtén <strong>Instalación Gratis ($0) + 10% de descuento mensual</strong> en tus primeros 3 meses. Meta API costos absorbidos por Zyra.</p>
+        </div>
+
+        <!-- Founder Benefit Banner -->
+        <div class="founder-highlight-banner">
+            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="width: 22px; height: 22px; color: #ff3b50; flex-shrink: 0;"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"></path></svg>
+            <span><strong>Beneficio Exclusivo Fundadores:</strong> Prioridad absoluta y soporte técnico directo mediante un <strong>grupo de WhatsApp exclusivo con el desarrollador del sistema</strong>.</span>
         </div>
         
         <div class="pricing-grid">
@@ -1023,7 +1225,10 @@
                         1 Número / 1 Sede
                     </li>
                     <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-                        <strong>400 clientes únicos</strong> / mes
+                        <strong>2,500 mensajes</strong> / mes
+                    </li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        <strong>500 conversaciones</strong> / mes
                     </li>
                     <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
                         Conversión de Moneda BCV
@@ -1058,7 +1263,7 @@
                         1 Número / 1 Sede
                     </li>
                     <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-                        <strong>1,000 clientes únicos</strong> / mes
+                        <strong>6,000 mensajes / 1,000 convs</strong>
                     </li>
                     <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
                         <strong>Escucha de Audios (Whisper)</strong>
@@ -1093,7 +1298,7 @@
                         1 Número / <strong>2 Sedes</strong>
                     </li>
                     <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-                        <strong>2,000 clientes únicos</strong> / mes
+                        <strong>12,000 mensajes / 3,000 convs</strong>
                     </li>
                     <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
                         <strong>Instagram Directo Incluido</strong>
@@ -1128,7 +1333,7 @@
                         1 Número / <strong>Sedes Ilimitadas</strong>
                     </li>
                     <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-                        <strong>5,000 clientes únicos</strong> / mes
+                        <strong>20,000 mensajes / 6,000 convs</strong>
                     </li>
                     <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
                         Ruteo Inteligente por Dirección/GPS
@@ -1141,6 +1346,70 @@
                     </li>
                 </ul>
                 <a href="https://wa.me/584228086971?text=Hola!%20Quiero%20información%20de%20Zyra%20Enterprise%20con%20descuento%20Fundador" class="price-btn enterprise">Solicitar Enterprise</a>
+            </div>
+        </div>
+
+        <!-- Overage & Meta Transparency Box -->
+        <div class="info-box">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <div class="info-content">
+                <h4>Políticas de Transparencia de Excedentes (Overages) y Divisas</h4>
+                <p>Para simplificar por completo la logística y evitar la complejidad del setup de tarjetas internacionales en Meta Business Suite, Zyra absorbe los cobros y costos base de la API oficial de WhatsApp Business. En caso de superar el volumen mensual incluido, se aplicarán las siguientes tarifas:</p>
+                <ul>
+                    <li><strong>Excedente de Mensajes:</strong> $10.00 USD por cada 1,000 mensajes adicionales en Plan Starter | $7.00 USD en Planes Pro y Pro Plus | $6.00 USD en Plan Enterprise.</li>
+                    <li><strong>Excedente de Conversaciones:</strong> $6.00 USD por cada 100 conversaciones de 24h adicionales en Plan Starter | $5.00 USD en Planes Pro y Pro Plus | $4.50 USD en Plan Enterprise.</li>
+                    <li><strong>Conversión de Divisas:</strong> Las mensualidades y consumos extras son facturables en USD y su equivalente en Bolívares (Bs.) calculados bajo la tasa oficial diaria del Banco Central de Venezuela (BCV).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="container faq reveal" id="faq">
+        <div class="section-header">
+            <h2>Preguntas Frecuentes</h2>
+            <p>Resolvemos todas tus dudas técnicas y comerciales sobre el asistente de ventas con IA de Zyra.</p>
+        </div>
+        <div class="faq-accordion">
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Necesito mantener mi teléfono celular encendido todo el día?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>No. A diferencia de las extensiones de navegador u otras herramientas informales, Zyra se conecta de forma directa e independiente a los servidores de Meta (Cloud API). El bot se mantiene respondiendo y procesando ventas en la nube las 24 horas del día, los 7 días de la semana, sin importar si tu teléfono móvil está apagado, sin batería o sin internet.</p>
+                </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Puedo usar mi número personal actual de WhatsApp?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>El bot requiere exclusividad absoluta de la línea. Por defecto, te otorgamos un número oficial nuevo de WhatsApp de manera 100% gratuita para el bot. Si de todas formas prefieres usar tu propio número, es posible, pero ese número debe ser dedicado exclusivamente al bot, ya que al conectarse a la API oficial de Meta para procesar los flujos del sistema no podrás usarlo en la aplicación móvil de WhatsApp normal.</p>
+                </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Cómo se realiza el cálculo de divisas y tasa BCV?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Zyra cuenta con un daemon asíncrono que consulta en caliente las cotizaciones oficiales del Banco Central de Venezuela (BCV). Al recibir un mensaje o emitir un checkout, los precios en dólares de tu inventario se traducen a bolívares de forma matemática y al instante con la tasa oficial, previniendo pérdidas por desactualización de tasas de cambio.</p>
+                </div>
+            </div>
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Qué pasa si un cliente quiere hablar con un humano o solicita asistencia?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Zyra cuenta con un módulo inteligente de Handover Humano. Si el cliente escribe palabras como "operador", "ayuda", o si el bot detecta un problema con su orden, el bot silencia automáticamente su IA por 30 minutos y redirige el chat de forma inmediata a la bandeja central del Live Chat en tu panel administrativo, donde un operador real de tu equipo puede intervenir.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1170,57 +1439,109 @@
 
         const chatBody = document.getElementById('chat-body');
 
-        function appendMessage(msgData, index) {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    const msgDiv = document.createElement('div');
-                    msgDiv.classList.add('msg', msgData.sender);
+        function appendMessage(msgData) {
+            const msgDiv = document.createElement('div');
+            msgDiv.classList.add('msg', msgData.sender);
 
-                    if (msgData.type === 'text') {
-                        msgDiv.innerHTML = msgData.content.replace(/\n/g, '<br>');
-                    } else if (msgData.type === 'image') {
-                        const img = document.createElement('img');
-                        img.src = msgData.content;
-                        img.className = 'msg-image';
-                        msgDiv.appendChild(img);
-                        const txt = document.createElement('span');
-                        txt.innerText = msgData.caption;
-                        msgDiv.appendChild(txt);
-                    } else if (msgData.type === 'voice') {
-                        const voiceContainer = document.createElement('div');
-                        voiceContainer.className = 'voice-note';
-                        voiceContainer.innerHTML = `
-                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            <div class="voice-wave"></div>
-                            <span>${msgData.duration}</span>
-                        `;
-                        msgDiv.appendChild(voiceContainer);
-                    }
+            if (msgData.type === 'text') {
+                msgDiv.innerHTML = msgData.content.replace(/\n/g, '<br>');
+            } else if (msgData.type === 'image') {
+                const img = document.createElement('img');
+                img.src = msgData.content;
+                img.className = 'msg-image';
+                msgDiv.appendChild(img);
+                const txt = document.createElement('span');
+                txt.innerText = msgData.caption;
+                msgDiv.appendChild(txt);
+            } else if (msgData.type === 'voice') {
+                const voiceContainer = document.createElement('div');
+                voiceContainer.className = 'voice-note';
+                voiceContainer.innerHTML = `
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <div class="voice-wave"></div>
+                    <span style="margin-left:4px;">${msgData.duration}</span>
+                `;
+                msgDiv.appendChild(voiceContainer);
+            }
 
-                    const timeSpan = document.createElement('span');
-                    timeSpan.className = 'msg-time';
-                    const now = new Date();
-                    timeSpan.innerText = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
-                    msgDiv.appendChild(timeSpan);
+            const timeSpan = document.createElement('span');
+            timeSpan.className = 'msg-time';
+            const now = new Date();
+            timeSpan.innerText = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
+            msgDiv.appendChild(timeSpan);
 
-                    chatBody.appendChild(msgDiv);
-                    chatBody.scrollTop = chatBody.scrollHeight;
-                    resolve();
-                }, index === 0 ? 500 : 2500); // Tiempos de retraso realistas
-            });
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
         }
 
         async function runDemoLoop() {
             chatBody.innerHTML = '';
             for (let i = 0; i < chatData.length; i++) {
-                await appendMessage(chatData[i], i);
+                const msg = chatData[i];
+
+                if (msg.sender === 'bot') {
+                    // Mostrar indicador de escribiendo
+                    const typingIndicator = document.createElement('div');
+                    typingIndicator.className = 'msg bot';
+                    typingIndicator.style.opacity = '0.7';
+                    typingIndicator.innerHTML = '<span style="font-size:12px; font-style:italic;">Escribiendo...</span>';
+                    chatBody.appendChild(typingIndicator);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+
+                    // Esperar simulación
+                    await new Promise(resolve => setTimeout(resolve, msg.type === 'image' ? 2200 : 1800));
+                    chatBody.removeChild(typingIndicator);
+                } else {
+                    // Espera sutil antes de que escriba el usuario
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                }
+
+                appendMessage(msg);
+                await new Promise(resolve => setTimeout(resolve, 1500));
             }
-            // Reinicia el loop a los 10 segundos de terminar
-            setTimeout(runDemoLoop, 10000);
+            // Reinicia el loop a los 12 segundos de terminar
+            setTimeout(runDemoLoop, 12000);
         }
 
-        // Ejecutar simulación
-        runDemoLoop();
+        // Lógica del Acordeón de FAQ
+        function initFaqAccordion() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Cerrar otros abiertos opcionalmente
+                    faqItems.forEach(other => {
+                        if (other !== item) other.classList.remove('open');
+                    });
+                    item.classList.toggle('open');
+                });
+            });
+        }
+
+        // Lógica del Intersection Observer para Scroll Reveal
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Dejar de observar una vez que ya apareció para rendimiento
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15 // Se activa cuando el 15% del elemento es visible
+            });
+
+            reveals.forEach(element => observer.observe(element));
+        }
+
+        // Inicializador Global al cargar el DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            runDemoLoop();
+            initFaqAccordion();
+            initScrollReveal();
+        });
     </script>
 </body>
 </html>
